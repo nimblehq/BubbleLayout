@@ -79,11 +79,15 @@ public class BubbleLayout extends FrameLayout {
         switch (mArrowDirection) {
             case LEFT_CENTER:
             case RIGHT_CENTER:
-                mArrowPosition = (bottom - top) / 2 - mArrowHeight / 2;
+                mArrowPosition = (bottom - top) / 2f - mArrowHeight / 2;
                 break;
             case TOP_CENTER:
             case BOTTOM_CENTER:
-                mArrowPosition = (right - left) / 2 - mArrowWidth / 2;
+                mArrowPosition = (right - left) / 2f - mArrowWidth / 2;
+                break;
+            case TOP_RIGHT:
+            case BOTTOM_RIGHT:
+                mArrowPosition = right - mArrowPosition - mArrowWidth / 2;
             default:
                 break;
         }
@@ -107,10 +111,12 @@ public class BubbleLayout extends FrameLayout {
                 break;
             case TOP:
             case TOP_CENTER:
+            case TOP_RIGHT:
                 paddingTop += mArrowHeight;
                 break;
             case BOTTOM:
             case BOTTOM_CENTER:
+            case BOTTOM_RIGHT:
                 paddingBottom += mArrowHeight;
                 break;
         }
@@ -139,10 +145,12 @@ public class BubbleLayout extends FrameLayout {
                 break;
             case TOP:
             case TOP_CENTER:
+            case TOP_RIGHT:
                 paddingTop -= mArrowHeight;
                 break;
             case BOTTOM:
             case BOTTOM_CENTER:
+            case BOTTOM_RIGHT:
                 paddingBottom -= mArrowHeight;
                 break;
         }
